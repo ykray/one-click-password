@@ -7,7 +7,6 @@ const onChange = () => {
   } else if (lengthField.value < 20) {
     value = 20;
   }
-
   chrome.storage.sync.set({ passwordLength: value }, () => {
     // Password length settings saved
   });
@@ -29,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
   chrome.storage.sync.get('passwordLength', (result) => {
     lengthField.value = result.passwordLength;
   });
-
   lengthField.addEventListener('change', onChange);
   lengthField.addEventListener('blur', onBlur);
 });

@@ -9,9 +9,8 @@ chrome.contextMenus.create({
   contexts: ['editable'],
   onclick: handleClick,
 });
-
+// Set default settings on install
 chrome.runtime.onInstalled.addListener((details) => {
-  // Set default settings on install
   if (details.reason == 'install') {
     chrome.storage.sync.set({ passwordLength: 20 });
   }

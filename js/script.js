@@ -5,8 +5,7 @@ const scan = () => {
   generatePassword().then((password) => {
     for (let i = 0; i < inputs.length; i++) {
       var input = inputs[i];
-
-      // Only inject into fields which have not been injected yet
+      // Only inject into fields which have not been injected
       if (
         input.type == 'password' &&
         input.parentElement.querySelector('#generate-password-button') == null
@@ -17,7 +16,6 @@ const scan = () => {
     }
   });
 };
-
 // Handle password generation from context menu
 chrome.runtime.onMessage.addListener((request) => {
   const element = document.activeElement;
@@ -34,5 +32,5 @@ chrome.runtime.onMessage.addListener((request) => {
   }
 });
 
-scan(); // initial scan
+scan(); // Initial scan
 document.addEventListener('click', scan);
